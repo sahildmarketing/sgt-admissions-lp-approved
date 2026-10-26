@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- =================================================================
+       SGT University admissions landing page
+       One self-contained file: all styles and scripts are inside it.
+       It only needs the assets/ folder next to it.
+
+       TODO before launch
+       1. Confirm the admission session. This page says 2027-28; the
+          LeadSquared form heading currently says 2026-27.
+          (Search this file for "2027-28" to change it everywhere.)
+       2. Paste your Google Tag Manager snippets where marked.
+       3. Set the canonical URL and og:url / og:image (need the live domain).
+       4. Swap LSQ_BASE_URL for the paid-campaign LeadSquared page.
+       ================================================================= -->
+
+  <title>SGT University Gurugram | Admissions Open 2027-28 | NAAC A+</title>
+  <meta name="description"
+    content="Admissions open 2027-28 at SGT University, Gurugram. NAAC A+ university offering MBBS, BDS, B.Tech, MBA, Law, Pharmacy, Nursing &amp; 200+ programmes. Enquire now.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <!-- <link rel="canonical" href="https://YOUR-FINAL-DOMAIN/admissions/"> -->
+  <meta name="theme-color" content="#0C4A6E">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SGT University">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:title" content="Admissions Open 2027-28 | SGT University, Gurugram">
+  <meta property="og:description"
+    content="NAAC A+ university in Delhi NCR with 200+ programmes in Medical, Dental, Engineering, Management, Law and more. Get free admission counselling.">
+  <!-- <meta property="og:url" content="https://YOUR-FINAL-DOMAIN/admissions/"> -->
+  <!-- <meta property="og:image" content="https://YOUR-FINAL-DOMAIN/assets/campus-aerial.webp"> -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollegeOrUniversity",
+    "name": "SGT University",
+    "alternateName": "Shree Guru Gobind Singh Tricentenary University",
+    "description": "NAAC A+ accredited university in Gurugram, Delhi NCR, with 19 schools offering 200+ undergraduate, postgraduate and doctoral programmes.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Gurgaon-Badli Road, Chandu, Budhera",
+      "addressLocality": "Gurugram",
+      "addressRegion": "Haryana",
+      "postalCode": "122505",
+      "addressCountry": "IN"
+    }
+  }
+  </script>
+
+  <!-- TODO: paste your Google Tag Manager <head> snippet here -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ---------------------------------------------------------------
+       Design tokens
+       Headings DM Serif Display · Body DM Sans
+       Background #F0F9FF · Foreground #0C4A6E · Primary #0284C7
+       Secondary #E0F2FE · Accent #0060AA · CTAs #FFD700
+       Primary is 3.8-4.1:1 on light backgrounds, so it is used for large
+       text, icons, borders and hover only; small text and links use Accent.
+       --------------------------------------------------------------- */
+    :root {
+      --bg: #F0F9FF;
+      --fg: #0C4A6E;
+      --primary: #0284C7;
+      --secondary: #E0F2FE;
+      --accent: #0060AA;
+      --cta: #FFD700;
+
+      --cta-hover: #F0C800;
+      --fg-muted: #3A6D8B;
+      --line: #CDE7F6;
+      --white: #FFFFFF;
+      --on-dark-muted: rgba(255, 255, 255, .88);
+
+      --font-heading: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+      --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+      --radius: 16px;
+      --radius-lg: 24px;
+      --shadow: 0 12px 32px rgba(12, 74, 110, .10);
+      --shadow-lg: 0 28px 60px rgba(12, 74, 110, .18);
+      --header-h: 76px;
+
+      /* LeadSquared form height (9 fields, consent box, OTP). Adjust after a live check. */
+      --form-h: 680px;
+      --form-h-mobile: 860px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 12px); -webkit-text-size-adjust: 100%; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.has-sticky { padding-bottom: 82px; }
+
+    img { max-width: 100%; height: auto; display: block; }
+    h1, h2, h3 { margin: 0; font-family: var(--font-heading); font-weight: 400; line-height: 1.12; color: var(--fg); }
+    p, figure, dl, dd, ul, ol { margin: 0; }
+    ul, ol { padding: 0; list-style: none; }
+    a { color: var(--accent); }
+    strong { font-weight: 700; }
+    .nowrap { white-space: nowrap; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .dark :focus-visible { outline-color: var(--cta); }
+
+    .container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 24px; }
+    .container--narrow { max-width: 880px; }
+
+    .skip {
+      position: absolute; left: 12px; top: -60px; z-index: 1000;
+      padding: 10px 16px; border-radius: 8px; background: var(--cta); color: var(--fg); font-weight: 700;
+    }
+    .skip:focus { top: 12px; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 52px; padding: 12px 28px;
+      border: 2px solid transparent; border-radius: 999px;
+      font: 700 1rem/1.2 var(--font-body);
+      text-decoration: none; cursor: pointer;
+      transition: background-color .15s ease, border-color .15s ease, color .15s ease, transform .15s ease;
+    }
+    .btn--cta { background: var(--cta); color: var(--fg); }
+    .btn--cta:hover { background: var(--cta-hover); color: var(--fg); }
+    .btn--outline { background: transparent; color: var(--accent); border-color: var(--accent); }
+    .btn--outline:hover { background: var(--secondary); }
+    .btn--sm { min-height: 44px; padding: 8px 22px; font-size: .95rem; white-space: nowrap; flex-shrink: 0; }
+    .btn--block { display: flex; width: 100%; }
+    .btn__play {
+      width: 26px; height: 26px; border-radius: 50%; background: var(--accent); position: relative; flex-shrink: 0;
+    }
+    .btn__play::after {
+      content: ""; position: absolute; left: 10px; top: 7px;
+      border-style: solid; border-width: 6px 0 6px 9px; border-color: transparent transparent transparent var(--white);
+    }
+    @media (prefers-reduced-motion: no-preference) { .btn--cta:hover { transform: translateY(-1px); } }
+
+    /* ---------- Header ---------- */
+    .header { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--line); }
+    .header__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: var(--header-h); }
+    .header__logo { display: inline-flex; }
+    .header__logo img { height: 54px; width: auto; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding-top: 52px;
+      background: var(--bg) url("assets/hero-wave-bg.webp") center / cover no-repeat;
+    }
+    .hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+      grid-template-areas: "intro form" "proof form" "visual form";
+      grid-template-rows: auto auto 1fr;
+      gap: 24px 56px;
+    }
+    .hero__intro { grid-area: intro; }
+    .hero__proof { grid-area: proof; }
+    .hero__form { grid-area: form; padding-bottom: 56px; }
+    .hero__visual { grid-area: visual; align-self: end; position: relative; display: flex; justify-content: center; padding-top: 12px; }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding: 6px 16px 6px 6px;
+      border-radius: 999px; background: var(--white); border: 1px solid var(--line);
+      color: var(--accent); font-size: .88rem; font-weight: 700;
+    }
+    .eyebrow img { width: 28px; height: auto; }
+    .hero__title { font-size: clamp(2.2rem, 4vw, 3.25rem); line-height: 1.07; margin-bottom: 18px; }
+    .hero__title .accent { color: var(--accent); }
+    .hero__sub { max-width: 36em; color: var(--fg-muted); font-size: 1.12rem; line-height: 1.65; }
+
+    .hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 28px; }
+    .text-link { display: inline-flex; align-items: center; gap: 10px; color: var(--accent); font-weight: 700; text-decoration: none; }
+    .text-link:hover { text-decoration: underline; }
+
+    .hero__ellipse { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: min(600px, 100%); height: auto; }
+    .hero__students { position: relative; width: min(470px, 88%); height: auto; }
+
+    /* ---------- Checklist ---------- */
+    .checklist { display: grid; gap: 12px; }
+    .checklist li { position: relative; padding-left: 34px; font-weight: 500; line-height: 1.5; }
+    .checklist li::before {
+      content: ""; position: absolute; left: 0; top: .08em; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center / 14px no-repeat;
+    }
+    .dark .checklist li::before {
+      background: var(--cta) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230C4A6E' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center / 14px no-repeat;
+    }
+
+    /* ---------- Form cards ---------- */
+    .form-card {
+      position: relative; padding: 26px 26px 20px;
+      border-radius: var(--radius-lg); background: var(--white); color: var(--fg);
+      box-shadow: var(--shadow-lg);
+    }
+    .form-card::before {
+      content: ""; position: absolute; left: 26px; right: 26px; top: 0; height: 5px;
+      border-radius: 0 0 6px 6px; background: var(--cta);
+    }
+    .form-card .form-card__title { font-size: 1.8rem; margin-bottom: 4px; color: var(--fg); }
+    .form-card :focus-visible { outline-color: var(--accent); }
+    .form-card__sub { color: var(--fg-muted); font-size: .95rem; line-height: 1.5; margin-bottom: 12px; }
+    .form-card__note { margin-top: 12px; color: var(--fg-muted); font-size: .8rem; line-height: 1.5; }
+    .form-frame iframe { display: block; width: 100%; height: var(--form-h); border: 0; background: var(--white); }
+
+    /* ---------- Sections ---------- */
+    .section { padding: 92px 0; }
+    .section--white { background: var(--white); }
+    .section--tint { background: var(--secondary); }
+
+    .section-head { max-width: 740px; margin: 0 auto 44px; text-align: center; }
+    .section-head h2 { font-size: clamp(2rem, 3.8vw, 3rem); margin-bottom: 12px; }
+    .section-head > p:last-child { color: var(--fg-muted); font-size: 1.08rem; }
+
+    .kicker {
+      display: inline-flex; align-items: center; gap: 10px; margin-bottom: 12px;
+      color: var(--accent); font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    }
+    .kicker::before { content: ""; width: 28px; height: 3px; border-radius: 2px; background: var(--primary); }
+    .dark .kicker { color: var(--cta); }
+    .dark .kicker::before { background: var(--cta); }
+
+    .note { max-width: 740px; margin: 28px auto 0; color: var(--fg-muted); font-size: .9rem; text-align: center; }
+    .center { margin-top: 36px; text-align: center; }
+
+    .dark { color: var(--white); background: linear-gradient(135deg, var(--fg) 0%, var(--accent) 100%); }
+    .dark h2, .dark h3 { color: var(--white); }
+    .dark .section-head > p:last-child { color: var(--on-dark-muted); }
+
+    /* ---------- Rankings ---------- */
+    .ranks { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+    .rank {
+      display: flex; flex-direction: column; gap: 16px; padding: 24px;
+      border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg);
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .rank:hover { border-color: var(--primary); box-shadow: var(--shadow); }
+    .rank__logo { display: flex; align-items: center; height: 60px; }
+    .rank__logo img { max-height: 60px; max-width: 160px; width: auto; mix-blend-mode: multiply; }
+    .rank dl { display: flex; flex-wrap: wrap; gap: 14px 22px; margin-top: auto; }
+    .rank dl div { display: flex; flex-direction: column; }
+    .rank dd { order: -1; color: var(--accent); font-family: var(--font-heading); font-size: 2rem; line-height: 1.05; }
+    .rank dt { color: var(--fg-muted); font-size: .85rem; font-weight: 500; }
+    .rank--featured { grid-row: span 2; justify-content: center; align-items: flex-start; background: var(--secondary); border-color: transparent; }
+    .rank--featured .rank__logo { height: auto; }
+    .rank--featured .rank__logo img { max-width: 150px; max-height: none; mix-blend-mode: normal; }
+    .rank--featured dd { font-size: 3.4rem; }
+    .rank--featured p { margin-top: 10px; color: var(--fg-muted); line-height: 1.55; }
+
+    /* ---------- Programmes ---------- */
+    .programmes { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 18px; }
+    .programme {
+      display: flex; flex-direction: column; gap: 8px; padding: 24px;
+      border: 1px solid var(--line); border-radius: var(--radius); background: var(--white);
+      transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+    }
+    .programme:hover { border-color: var(--primary); box-shadow: var(--shadow); }
+    .programme h3 { font-size: 1.45rem; }
+    .programme p { flex: 1; color: var(--fg-muted); font-size: .95rem; line-height: 1.55; }
+    .programme a { align-self: flex-start; margin-top: 6px; font-weight: 700; text-decoration: none; }
+    .programme a::after { content: " \2192"; }
+    .programme a:hover { text-decoration: underline; }
+    @media (prefers-reduced-motion: no-preference) { .programme:hover { transform: translateY(-2px); } }
+
+    /* ---------- About ---------- */
+    .about { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 56px; align-items: center; }
+    .about h2 { font-size: clamp(2rem, 3.8vw, 3rem); margin-bottom: 18px; }
+    .about p:not(.kicker) { color: var(--fg-muted); line-height: 1.75; margin-bottom: 16px; }
+    .about .lead { color: var(--fg); font-size: 1.12rem; }
+    .about strong { color: var(--fg); }
+    .stat-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .stat-tiles div { display: flex; flex-direction: column; padding: 22px; border-radius: var(--radius); background: var(--secondary); }
+    .stat-tiles dd { order: -1; color: var(--accent); font-family: var(--font-heading); font-size: 2.6rem; line-height: 1.05; }
+    .stat-tiles dt { color: var(--fg-muted); font-weight: 500; }
+    .about-building { margin-top: 32px; }
+    .about-building img { width: 100%; }
+
+    /* ---------- Why SGT ---------- */
+    .features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .feature { display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: var(--radius); background: var(--white); border: 1px solid var(--line); }
+    .feature__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+    .badge { padding: 4px 12px; border-radius: 999px; background: var(--secondary); color: var(--accent); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .feature__num { color: var(--primary); font-family: var(--font-heading); font-size: 2.4rem; line-height: 1; }
+    .feature h3 { font-size: 1.4rem; }
+    .feature p { color: var(--fg-muted); font-size: .95rem; line-height: 1.6; }
+
+    /* ---------- Placements ---------- */
+    .placements { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 56px; align-items: center; }
+    .placements h2 { font-size: clamp(2rem, 3.8vw, 3rem); margin-bottom: 14px; }
+    .placements__intro > p:not(.kicker) { color: var(--on-dark-muted); font-size: 1.08rem; margin-bottom: 32px; }
+    .big-stats { display: grid; gap: 4px; }
+    .big-stats div { display: flex; align-items: baseline; gap: 18px; padding: 16px 0; border-top: 1px solid rgba(255, 255, 255, .2); }
+    .big-stats dd { order: -1; color: var(--cta); font-family: var(--font-heading); font-size: clamp(2.4rem, 4.6vw, 3.4rem); line-height: 1; min-width: 4.4em; }
+    .big-stats dt { color: var(--on-dark-muted); font-weight: 500; font-size: 1.05rem; }
+    .recruiters { padding: 28px; border-radius: var(--radius-lg); background: var(--white); box-shadow: 0 24px 50px rgba(3, 25, 45, .35); }
+    .recruiters p { color: var(--fg-muted); font-size: .85rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 18px; text-align: center; }
+    .recruiters img { width: 100%; max-width: 520px; margin: 0 auto; }
+
+    /* ---------- Collaborations ---------- */
+    .partners { padding: 24px; border-radius: var(--radius-lg); background: var(--white); border: 1px solid var(--line); }
+    .partners__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .partners__scroll img { width: 100%; min-width: 860px; }
+    .partners__hint { display: none; margin-top: 12px; color: var(--fg-muted); font-size: .85rem; text-align: center; }
+
+    /* ---------- Campus tour ---------- */
+    .tour {
+      position: relative; display: block; width: 100%; max-width: 1040px; margin: 0 auto;
+      aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--radius-lg);
+      background: var(--fg); box-shadow: var(--shadow-lg);
+    }
+    .tour iframe, .tour__play { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .tour__play { padding: 0; cursor: pointer; background: var(--fg); font-family: var(--font-body); }
+    /* zoom toward the buildings so the photo's white sky doesn't wash out the frame */
+    .tour__play img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.2); transform-origin: 50% 100%; }
+    .tour__play::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(180deg, rgba(12, 74, 110, 0) 45%, rgba(12, 74, 110, .7) 100%); }
+    .tour__icon {
+      position: absolute; z-index: 1; left: 50%; top: 50%; width: 88px; height: 88px; margin: -44px 0 0 -44px;
+      border-radius: 50%; background: var(--cta); box-shadow: 0 10px 30px rgba(8, 47, 73, .35);
+      transition: transform .15s ease, background-color .15s ease;
+    }
+    .tour__icon::after {
+      content: ""; position: absolute; left: 36px; top: 28px;
+      border-style: solid; border-width: 16px 0 16px 24px; border-color: transparent transparent transparent var(--fg);
+    }
+    .tour__play:hover .tour__icon { background: var(--cta-hover); }
+    @media (prefers-reduced-motion: no-preference) { .tour__play:hover .tour__icon { transform: scale(1.06); } }
+    .tour__label { position: absolute; z-index: 1; left: 28px; bottom: 24px; color: var(--white); text-align: left; }
+    .tour__label strong { display: block; font-family: var(--font-heading); font-weight: 400; font-size: 1.7rem; line-height: 1.15; }
+    .tour__label span { font-size: .95rem; opacity: .92; }
+    @supports not (aspect-ratio: 16 / 9) { .tour { height: 0; padding-top: 56.25%; } }
+
+    /* ---------- Admission steps (hexagons) ---------- */
+    .steps { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; counter-reset: step; }
+    .step { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; counter-increment: step; }
+    /* connector from this hexagon's right point to the next hexagon's left point */
+    .step:not(:last-child)::after {
+      content: ""; position: absolute; top: 72px; left: calc(50% + 60px); right: calc(-50% + 44px);
+      height: 2px; background: var(--primary); opacity: .55;
+    }
+    .hex {
+      position: relative; display: grid; place-items: center; width: 104px; height: 116px; margin-bottom: 18px;
+      clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+      background: var(--accent); color: var(--white);
+    }
+    .step:nth-child(3n+2) .hex { background: var(--primary); }
+    .step:nth-child(3n) .hex { background: var(--fg); }
+    .hex svg { width: 40px; height: 40px; }
+    .step__num {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%); z-index: 1;
+      display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%;
+      background: var(--cta); color: var(--fg); border: 3px solid var(--secondary);
+      font-family: var(--font-heading); font-size: 1.15rem;
+    }
+    .step__body h3 { font-size: 1.25rem; margin-bottom: 6px; }
+    .step__body p { color: var(--fg-muted); font-size: .9rem; line-height: 1.5; }
+    .step { padding-top: 14px; }
+
+    /* ---------- FAQ ---------- */
+    .faq { display: grid; gap: 12px; }
+    .faq details { border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); transition: border-color .15s ease; }
+    .faq details[open] { border-color: var(--primary); }
+    .faq summary { position: relative; padding: 20px 60px 20px 24px; font-size: 1.05rem; font-weight: 700; list-style: none; cursor: pointer; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after {
+      content: "+"; position: absolute; right: 20px; top: 50%; display: grid; place-items: center;
+      width: 30px; height: 30px; margin-top: -15px; border-radius: 50%;
+      background: var(--secondary); color: var(--accent); font-size: 1.25rem; line-height: 1;
+    }
+    .faq details[open] summary::after { content: "\2013"; }
+    .faq details p { padding: 0 24px 22px; color: var(--fg-muted); line-height: 1.7; }
+
+    /* ---------- Closing form ---------- */
+    .closing { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .92fr); gap: 56px; align-items: center; }
+    .closing h2 { font-size: clamp(2.1rem, 4vw, 3.2rem); margin-bottom: 14px; }
+    .closing__copy > p:not(.kicker) { color: var(--on-dark-muted); font-size: 1.08rem; margin-bottom: 24px; }
+    .closing__photo { margin-top: 32px; }
+    .closing__photo img { width: 100%; max-width: 560px; border-radius: var(--radius-lg); }
+
+    /* ---------- Footer ---------- */
+    .footer { padding: 40px 0; background: var(--white); border-top: 1px solid var(--line); color: var(--fg-muted); font-size: .9rem; }
+    .footer__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+    .footer__brand { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
+    .footer__brand img { height: 56px; width: auto; }
+    .footer address { font-style: normal; }
+    .footer__legal { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; }
+
+    /* ---------- Sticky mobile CTA ---------- */
+    .sticky-cta {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 200;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      background: var(--white); box-shadow: 0 -6px 18px rgba(12, 74, 110, .15);
+    }
+    .sticky-cta[hidden] { display: none; }
+
+    /* ---------- Responsive ---------- */
+    @media (min-width: 900px) {
+      .sticky-cta { display: none !important; }
+      body.has-sticky { padding-bottom: 0; }
+    }
+
+    @media (max-width: 1100px) {
+      .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 36px; }
+      .step:nth-child(3)::after { display: none; }
+    }
+
+    @media (max-width: 1023px) {
+      .ranks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .rank--featured { grid-row: auto; grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 24px; }
+      .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 899px) {
+      .hero { padding-top: 32px; }
+      .hero__grid {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: "intro" "form" "proof" "visual";
+        grid-template-rows: auto;
+        gap: 28px;
+      }
+      .hero__form { padding-bottom: 0; }
+      .hero__actions { margin-top: 22px; }
+      .about, .placements, .closing { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+      .section { padding: 64px 0; }
+    }
+
+    @media (max-width: 599px) {
+      :root { --header-h: 64px; }
+      .container { padding-inline: 16px; }
+      .header__logo img { height: 42px; }
+      .hero__sub { font-size: 1rem; }
+      .eyebrow { font-size: .8rem; }
+      .form-card { padding: 22px 14px 16px; border-radius: 18px; }
+      .form-card::before { left: 14px; right: 14px; }
+      .form-card__title { font-size: 1.55rem; }
+      .form-frame iframe { height: var(--form-h-mobile); }
+      .hero__actions .btn { flex: 1 1 100%; }
+      .hero__students { width: min(340px, 92%); }
+      .section-head { margin-bottom: 30px; }
+      .features, .programmes { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+      .ranks { gap: 10px; }
+      .rank { padding: 16px 14px; gap: 12px; }
+      .rank__logo { height: 42px; }
+      .rank__logo img { max-height: 42px; max-width: 120px; }
+      .rank dl { gap: 8px 14px; }
+      .rank dd { font-size: 1.5rem; }
+      .rank dt { font-size: .78rem; }
+      .rank--featured { gap: 16px; }
+      .rank--featured .rank__logo img { max-width: 84px; }
+      .rank--featured dd { font-size: 2.2rem; }
+      .rank--featured p { font-size: .9rem; }
+      .stat-tiles dd { font-size: 2.1rem; }
+      .stat-tiles div { padding: 16px; }
+      .big-stats dd { min-width: 3.6em; }
+      .recruiters, .partners { padding: 18px 14px; }
+      .partners__hint { display: block; }
+      .tour { aspect-ratio: 4 / 3; }
+      .tour__label { left: 18px; bottom: 16px; right: 18px; }
+      .tour__label strong { font-size: 1.3rem; }
+      .tour__icon { width: 68px; height: 68px; margin: -34px 0 0 -34px; }
+      .tour__icon::after { left: 27px; top: 21px; border-width: 13px 0 13px 19px; }
+      .steps { grid-template-columns: minmax(0, 1fr); row-gap: 14px; }
+      .step { flex-direction: row; align-items: center; gap: 18px; text-align: left; padding: 14px 0 0; }
+      .step:not(:last-child)::after { display: none; }
+      .hex { width: 72px; height: 80px; margin: 0; flex-shrink: 0; }
+      .hex svg { width: 30px; height: 30px; }
+      .step__num { top: -2px; left: 36px; width: 30px; height: 30px; font-size: .95rem; }
+      .footer__inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+
+  <script>
+    /* LeadSquared forms: add the visitor's campaign data to each form's address.
+       Each form iframe already has a working src, so if this fails the form still loads. */
+    (function () {
+      'use strict';
+
+      // TODO: replace with the paid-campaign page from your LeadSquared admin.
+      var LSQ_BASE_URL = 'https://sgtuni.viewpage.co/SGTU-LMS-organic';
+
+      // Ad parameters copied from this page's URL into the form URL.
+      var PASS_THROUGH = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'utm_id',
+        'gclid', 'gbraid', 'wbraid', 'fbclid', 'msclkid'];
+
+      // Tells LeadSquared which form was used ("hero" or "bottom"). Set to '' to turn off.
+      var POSITION_PARAM = 'form_position';
+
+      var SEARCH_ENGINES = /(^|\.)(google|bing|yahoo|duckduckgo|yandex|ecosia)\./i;
+
+      function campaignParams() {
+        var current = new URLSearchParams(window.location.search);
+        var out = new URLSearchParams();
+        PASS_THROUGH.forEach(function (key) {
+          var value = current.get(key);
+          if (value) out.set(key, value);
+        });
+        if (!out.has('utm_source')) {
+          var host = '';
+          try { host = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) { host = ''; }
+          if (host && host !== window.location.hostname) {
+            out.set('utm_source', host.replace(/^www\./, ''));
+            out.set('utm_medium', SEARCH_ENGINES.test(host) ? 'organic' : 'referral');
+          } else {
+            out.set('utm_source', 'direct');
+            out.set('utm_medium', 'none');
+          }
+        }
+        out.set('ignoremxtracking', 'mxtrue'); // from the original LeadSquared embed code
+        return out;
+      }
+
+      window.sgtSetFormSrc = function (frame) {
+        try {
+          if (!frame || frame.tagName !== 'IFRAME') return;
+          var params = campaignParams();
+          if (POSITION_PARAM) params.set(POSITION_PARAM, frame.getAttribute('data-form-position') || 'unknown');
+          frame.src = LSQ_BASE_URL + '?' + params.toString();
+        } catch (e) { /* keep the default src */ }
+      };
+    })();
+  </script>
+</head>
+
+<body>
+  <!-- TODO: paste your Google Tag Manager <noscript> snippet here -->
+
+  <a class="skip" href="#apply">Skip to enquiry form</a>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#hero" class="header__logo" aria-label="SGT University, back to top">
+        <img src="assets/sgt-logo.svg" alt="SGT University, NAAC A+ accredited" width="253" height="71">
+      </a>
+      <a href="#apply" class="btn btn--cta btn--sm" data-cta="header">Enquire Now</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =============================== HERO + FORM 1 =============================== -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+
+        <div class="hero__intro">
+          <p class="eyebrow">
+            <img src="assets/naac-a-plus.svg" alt="" width="256" height="260">
+            NAAC A+ Accredited University in Delhi NCR
+          </p>
+          <h1 id="hero-title" class="hero__title">
+            Admissions Open <span class="nowrap">2027-28</span><br>
+            <span class="accent">at SGT University, Gurugram</span>
+          </h1>
+          <p class="hero__sub">
+            Choose from 200+ programmes across 19 schools, including MBBS, BDS, BAMS, B.Tech, MBA, BA LLB, B.Pharm
+            and B.Sc Nursing, backed by the 1,000+ bed multispeciality SGT Hospital.
+          </p>
+        </div>
+
+        <div class="hero__form" id="apply">
+          <div class="form-card">
+            <h2 class="form-card__title">Get Free Admission Counselling</h2>
+            <p class="form-card__sub">Share your details and an admissions counsellor will get in touch.</p>
+            <div class="form-frame">
+              <iframe class="js-lsq-form" data-form-position="hero" name="leadsquared_landing_page_frame"
+                src="https://sgtuni.viewpage.co/SGTU-LMS-organic?ignoremxtracking=mxtrue"
+                title="SGT University admission enquiry form" frameborder="0" scrolling="auto"></iframe>
+              <script>sgtSetFormSrc(document.currentScript.previousElementSibling);</script>
+              <script>
+                /* From the original LeadSquared embed code; confirm with your LeadSquared admin it is still needed. */
+                var MXLandingPageId = 'e54dd444-bb07-11ec-8121-0af88934a77e';
+              </script>
+            </div>
+            <p class="form-card__note">
+              By submitting, you agree to be contacted by SGT University about admissions.
+              Read our <a href="privacy-policy.html">Privacy Policy</a>.
+            </p>
+          </div>
+        </div>
+
+        <div class="hero__proof">
+          <ul class="checklist">
+            <li>NAAC A+ accredited, 19 schools, 200+ programmes</li>
+            <li>1,000+ bed multispeciality SGT Hospital</li>
+            <li>275+ recruiters, highest package &#8377;42 LPA</li>
+            <li>Scholarships available: ask your counsellor</li>
+          </ul>
+          <div class="hero__actions">
+            <a href="#programmes" class="btn btn--outline" data-cta="hero-programmes">Explore Programmes</a>
+            <a href="#campus-tour" class="text-link" data-cta="hero-tour"><span class="btn__play" aria-hidden="true"></span>Watch Campus Tour</a>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <img class="hero__ellipse" src="assets/hero-ellipse.svg" alt="" width="994" height="497">
+          <img class="hero__students" src="assets/students-hero.webp"
+            alt="SGT University students in professional and hospitality uniforms" width="687" height="564"
+            fetchpriority="high">
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =============================== RANKINGS =============================== -->
+    <section class="section section--white" id="rankings" aria-labelledby="rankings-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">Rankings &amp; accreditation</p>
+          <h2 id="rankings-title">Ranked and Recognised, Nationally and Globally</h2>
+          <p>SGT University's standing in India's leading rankings and international league tables.</p>
+        </header>
+
+        <ul class="ranks">
+          <li class="rank rank--featured">
+            <div class="rank__logo"><img src="assets/naac-a-plus.svg" alt="NAAC A+" width="256" height="260" loading="lazy"></div>
+            <div>
+              <dl><div><dt>NAAC grade</dt><dd>A+</dd></div></dl>
+              <p>Accredited by the National Assessment and Accreditation Council.</p>
+            </div>
+          </li>
+          <li class="rank">
+            <div class="rank__logo"><img src="assets/rank-iirf.webp" alt="IIRF ranking" width="149" height="117" loading="lazy"></div>
+            <dl>
+              <div><dt>State rank</dt><dd>4</dd></div>
+              <div><dt>Zone rank</dt><dd>19</dd></div>
+              <div><dt>National rank</dt><dd>45</dd></div>
+            </dl>
+          </li>
+          <li class="rank">
+            <div class="rank__logo"><img src="assets/rank-nirf.webp" alt="NIRF ranking" width="175" height="110" loading="lazy"></div>
+            <dl><div><dt>Rank in Pharmacy</dt><dd>100</dd></div></dl>
+          </li>
+          <li class="rank">
+            <div class="rank__logo"><img src="assets/rank-the.webp" alt="Times Higher Education World University Rankings" width="200" height="65" loading="lazy"></div>
+            <dl>
+              <div><dt>National</dt><dd>98</dd></div>
+              <div><dt>Teaching</dt><dd>1223</dd></div>
+              <div><dt>International</dt><dd>1501+</dd></div>
+            </dl>
+          </li>
+          <li class="rank">
+            <div class="rank__logo"><img src="assets/rank-qs.webp" alt="QS Asian University Rankings" width="200" height="65" loading="lazy"></div>
+            <dl><div><dt>Rank in South Asia</dt><dd>397</dd></div></dl>
+          </li>
+          <li class="rank">
+            <div class="rank__logo"><img src="assets/rank-mhw.webp" alt="MHW Ranking" width="147" height="78" loading="lazy"></div>
+            <dl><div><dt>Advanced band for promoting mental health and well-being</dt><dd>Diamond+</dd></div></dl>
+          </li>
+          <li class="rank">
+            <div class="rank__logo"><img src="assets/rank-outlook.webp" alt="Outlook rankings" width="200" height="37" loading="lazy"></div>
+            <dl><div><dt>Rank in India</dt><dd>48</dd></div></dl>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- =============================== PROGRAMMES =============================== -->
+    <section class="section" id="programmes" aria-labelledby="programmes-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">Programmes</p>
+          <h2 id="programmes-title">Courses Offered at SGT University</h2>
+          <p>Undergraduate, postgraduate and doctoral programmes in medicine, dental, engineering, management, law and more.</p>
+        </header>
+
+        <div class="programmes">
+          <article class="programme"><h3>Medical &amp; Dental</h3><p>MBBS, MD/MS, BDS, MDS</p><a href="#apply" data-cta="programme-medical">Enquire</a></article>
+          <article class="programme"><h3>Ayurveda</h3><p>BAMS, with a superspeciality Ayurveda hospital on campus</p><a href="#apply" data-cta="programme-ayurveda">Enquire</a></article>
+          <article class="programme"><h3>Nursing &amp; Physiotherapy</h3><p>B.Sc Nursing, M.Sc Nursing, GNM, BPT, MPT</p><a href="#apply" data-cta="programme-nursing-physio">Enquire</a></article>
+          <article class="programme"><h3>Allied Health Sciences</h3><p>B.Sc Medical Lab Technology, B.Sc Radiology &amp; Imaging Technology</p><a href="#apply" data-cta="programme-allied-health">Enquire</a></article>
+          <article class="programme"><h3>Pharmacy</h3><p>D.Pharm, B.Pharm, M.Pharm</p><a href="#apply" data-cta="programme-pharmacy">Enquire</a></article>
+          <article class="programme"><h3>Engineering &amp; Technology</h3><p>B.Tech in Computer Science, Mechanical, Civil and Electronics &amp; Communication; M.Tech</p><a href="#apply" data-cta="programme-engineering">Enquire</a></article>
+          <article class="programme"><h3>Computer Applications</h3><p>BCA (incl. AI &amp; Machine Learning, Cloud Computing), MCA</p><a href="#apply" data-cta="programme-computer-applications">Enquire</a></article>
+          <article class="programme"><h3>Management &amp; Commerce</h3><p>BBA, B.Com, MBA (incl. dual specialisation)</p><a href="#apply" data-cta="programme-management">Enquire</a></article>
+          <article class="programme"><h3>Law</h3><p>BA LLB (Hons), BBA LLB (Hons), LLB (Hons), LLM</p><a href="#apply" data-cta="programme-law">Enquire</a></article>
+          <article class="programme"><h3>Media &amp; Communication</h3><p>BJMC (Journalism &amp; Mass Communication)</p><a href="#apply" data-cta="programme-media">Enquire</a></article>
+          <article class="programme"><h3>Agriculture</h3><p>B.Sc (Hons) Agriculture at Delhi NCR's first ICAR-accredited private university</p><a href="#apply" data-cta="programme-agriculture">Enquire</a></article>
+          <article class="programme"><h3>Education &amp; Research</h3><p>B.Ed, M.Sc, Ph.D</p><a href="#apply" data-cta="programme-education-research">Enquire</a></article>
+        </div>
+
+        <p class="note">Eligibility and availability vary by programme. Your counsellor will confirm details for your chosen course.</p>
+      </div>
+    </section>
+
+
+    <!-- =============================== ABOUT =============================== -->
+    <section class="section section--white" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about">
+          <div>
+            <p class="kicker">About</p>
+            <h2 id="about-title">About SGT University, Gurugram</h2>
+            <p class="lead">
+              SGT University, accredited with an <strong>A+ grade by NAAC</strong>, is committed to academic
+              excellence, research and innovation. With <strong>19 schools offering 200+ multidisciplinary
+                programmes</strong>, it fosters entrepreneurship, global collaborations and groundbreaking research.
+            </p>
+            <p>
+              Education goes beyond the classroom. The university's healthcare ecosystem includes the multispeciality
+              <strong>1,000+ bed SGT Hospital</strong> and a superspeciality Ayurveda hospital with Panchakarma and
+              Ksharasutra centres, a wellness centre and a herbal garden. Many faculty members are recognised in
+              Stanford University's &ldquo;Top 2% Scientists&rdquo; list.
+            </p>
+          </div>
+          <dl class="stat-tiles">
+            <div><dt>Schools</dt><dd>19</dd></div>
+            <div><dt>Programmes</dt><dd>200+</dd></div>
+            <div><dt>Bed SGT Hospital</dt><dd>1,000+</dd></div>
+            <div><dt>Acre green campus</dt><dd>100+</dd></div>
+          </dl>
+        </div>
+        <figure class="about-building">
+          <img src="assets/campus-building.webp" alt="SGT University academic building in Gurugram" width="1440"
+            height="566" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
+
+
+    <!-- =============================== WHY SGT =============================== -->
+    <section class="section section--tint" id="why-sgt" aria-labelledby="why-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">Why SGT</p>
+          <h2 id="why-title">Why Students Choose SGT University</h2>
+        </header>
+
+        <div class="features">
+          <article class="feature">
+            <div class="feature__top"><span class="badge">Accreditation</span><span class="feature__num">01</span></div>
+            <h3>Youngest &ldquo;NAAC A+&rdquo; Accredited Institution</h3>
+            <p>One of India's youngest institutions with a prestigious NAAC A+ accreditation.</p>
+          </article>
+          <article class="feature">
+            <div class="feature__top"><span class="badge">Industry partnerships</span><span class="feature__num">02</span></div>
+            <h3>Industry-Partnered Labs</h3>
+            <p>Facilities set up in collaboration with Apple, IBM, SAP, Oracle, SMC India, UNESCO Bioethics and more.</p>
+          </article>
+          <article class="feature">
+            <div class="feature__top"><span class="badge">Research leadership</span><span class="feature__num">03</span></div>
+            <h3>Stanford Top 2% Scientists on Faculty</h3>
+            <p>Several faculty members are recognised in Stanford University's global &ldquo;Top 2% Scientists&rdquo; list.</p>
+          </article>
+          <article class="feature">
+            <div class="feature__top"><span class="badge">Startups &amp; innovation</span><span class="feature__num">04</span></div>
+            <h3>Govt-Supported Incubation Centre</h3>
+            <p>Students build and scale startups, with 100+ ventures incubated so far.</p>
+          </article>
+          <article class="feature">
+            <div class="feature__top"><span class="badge">AI &amp; robotics</span><span class="feature__num">05</span></div>
+            <h3>Medical Cobotics Centre with IIT Delhi</h3>
+            <p>A joint venture with IIT Delhi in surgical robotics, AI and clinical research.</p>
+          </article>
+          <article class="feature">
+            <div class="feature__top"><span class="badge">Healthcare simulation</span><span class="feature__num">06</span></div>
+            <h3>National Reference Simulation Centre</h3>
+            <p>Simulation-based training for doctors, nurses and allied health professionals.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================== PLACEMENTS =============================== -->
+    <section class="section dark" id="placements" aria-labelledby="placements-title">
+      <div class="container placements">
+        <div class="placements__intro">
+          <p class="kicker">Placements</p>
+          <h2 id="placements-title">Placements at SGT University</h2>
+          <p>Dedicated placement support that prepares you for leading recruiters across technology, healthcare,
+            consulting and hospitality.</p>
+          <dl class="big-stats">
+            <div><dt>Placement support</dt><dd>100%</dd></div>
+            <div><dt>Recruiters</dt><dd>275+</dd></div>
+            <div><dt>Highest package received</dt><dd>&#8377;42 LPA</dd></div>
+          </dl>
+        </div>
+        <div class="recruiters">
+          <p>Our students are recruited by</p>
+          <img src="assets/recruiters.webp"
+            alt="Recruiter logos: Accenture, Amazon, Deloitte, Google, Infosys, IBM, TCS, DHL, vivo, Tech Mahindra, Fortis, Medanta, UltraTech Cement, Max Healthcare, DLF, Radisson Blu, EY and Wipro"
+            width="710" height="714" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================== COLLABORATIONS =============================== -->
+    <section class="section" id="collaborations" aria-labelledby="collab-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">Global</p>
+          <h2 id="collab-title">30+ International Academic Collaborations</h2>
+          <p>Student exchange, joint research and global exposure with universities and institutions worldwide.</p>
+        </header>
+        <div class="partners">
+          <div class="partners__scroll" tabindex="0" role="region" aria-label="International partner logos, scrollable">
+            <img src="assets/collaborations.webp"
+              alt="Partner institution logos including University of Kent, Keele University, The University of Queensland, University of York, University of Wollongong, University of Plymouth, Vilnius Tech, Manipal University College Malaysia, AIMST University, Universiti Teknologi MARA and Budapest Metropolitan University"
+              width="1255" height="253" loading="lazy" decoding="async">
+          </div>
+          <p class="partners__hint">Swipe to see all partners &rarr;</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================== CAMPUS TOUR =============================== -->
+    <section class="section section--white" id="campus-tour" aria-labelledby="tour-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">Campus life</p>
+          <h2 id="tour-title">Take a Virtual Tour of SGT University, Gurugram</h2>
+          <p>A 100+ acre green campus with simulation centres, research labs, hospitals, hostels and sports facilities.</p>
+        </header>
+
+        <div class="tour">
+          <button type="button" class="tour__play js-video" data-video-id="guoMNrOQZF4"
+            data-video-title="SGT University campus tour video" data-cta="campus-video">
+            <img src="assets/campus-aerial.webp" alt="" width="1442" height="700" loading="lazy" decoding="async">
+            <span class="tour__icon" aria-hidden="true"></span>
+            <span class="tour__label"><strong>Watch the campus tour</strong><span>SGT University, Budhera, Gurugram</span></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================== ADMISSION PROCESS =============================== -->
+    <section class="section section--tint" id="admission-process" aria-labelledby="process-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">How to apply</p>
+          <h2 id="process-title">Admission Process at SGT University</h2>
+          <p>Six steps from your first enquiry to enrolment.</p>
+        </header>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step__num" aria-hidden="true">1</span>
+            <div class="hex" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9zM9 11h6M9 15h4"/></svg></div>
+            <div class="step__body"><h3>Submit your query</h3><p>Fill in the form with your details and course of interest.</p></div>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">2</span>
+            <div class="hex" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M9 10.5h.01M12 10.5h.01M15 10.5h.01" stroke-width="2.6"/></svg></div>
+            <div class="step__body"><h3>Get personalised counselling</h3><p>A counsellor explains eligibility, fees and scholarships.</p></div>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">3</span>
+            <div class="hex" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 12h6M10 15h6M10 18h4"/></svg></div>
+            <div class="step__body"><h3>Fill the application form</h3><p>Apply online or on campus.</p></div>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">4</span>
+            <div class="hex" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8" r="3"/><circle cx="15.5" cy="8" r="3"/><path d="M3 20c0-3 2.5-5 5.5-5s5.5 2 5.5 5M14.5 15.2c.3-.1.7-.2 1-.2 3 0 5.5 2 5.5 5"/></svg></div>
+            <div class="step__body"><h3>Personal interview (PI)</h3><p>Assessment through a personal interview.</p></div>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">5</span>
+            <div class="hex" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v9H8zM6 12h12M8 12v9M16 12v9M8 17h8"/></svg></div>
+            <div class="step__body"><h3>Reserve your seat</h3><p>Confirm your place once you are selected.</p></div>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">6</span>
+            <div class="hex" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="11" r="2"/><path d="M5.5 16c.6-1.5 1.7-2.2 3-2.2s2.4.7 3 2.2M14 10h4M14 13h4"/></svg></div>
+            <div class="step__body"><h3>Submit documents &amp; enrol</h3><p>Complete document verification and join SGT University.</p></div>
+          </li>
+        </ol>
+
+        <p class="note">Admission to MBBS, BDS and MD/MS is through NEET and the applicable counselling process.</p>
+        <div class="center"><a href="#enquire" class="btn btn--cta" data-cta="process-start">Start with Step 1</a></div>
+      </div>
+    </section>
+
+
+    <!-- =============================== FAQ =============================== -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container container--narrow">
+        <header class="section-head">
+          <p class="kicker">FAQs</p>
+          <h2 id="faq-title">SGT University Admission FAQs</h2>
+        </header>
+
+        <div class="faq">
+          <details>
+            <summary>Is SGT University NAAC accredited?</summary>
+            <p>Yes. SGT University is accredited with an A+ grade by NAAC (National Assessment and Accreditation Council).</p>
+          </details>
+          <details>
+            <summary>What are SGT University's rankings?</summary>
+            <p>SGT University is ranked 45 nationally, 19 in its zone and 4 in the state by IIRF, 48 in India by Outlook,
+              and 100 in Pharmacy by NIRF. It is ranked 98 nationally in the Times Higher Education World University
+              Rankings and 397 in South Asia in the QS Asian University Rankings, and holds a Diamond+ band in the MHW
+              Ranking for mental health and well-being.</p>
+          </details>
+          <details>
+            <summary>Where is SGT University located?</summary>
+            <p>The campus is on Gurgaon-Badli Road, Chandu, Budhera, Gurugram, Haryana 122505, in Delhi NCR.</p>
+          </details>
+          <details>
+            <summary>What courses does SGT University offer?</summary>
+            <p>SGT University offers 200+ programmes across 19 schools, including MBBS, BDS, BAMS, B.Sc Nursing, BPT,
+              B.Pharm, B.Tech, BCA, BBA, MBA, BA LLB, BJMC, B.Sc Agriculture and B.Ed, along with postgraduate and
+              Ph.D programmes.</p>
+          </details>
+          <details>
+            <summary>How do I get admission to MBBS or BDS at SGT University?</summary>
+            <p>Admission to MBBS and BDS is based on NEET UG and the applicable counselling process. You need to have
+              completed 10+2 with Physics, Chemistry and Biology. A counsellor can guide you through the steps.</p>
+          </details>
+          <details>
+            <summary>What is the admission process for other courses?</summary>
+            <p>Submit a query, get counselling, fill in the application form online or offline, attend a personal
+              interview, reserve your seat, and complete your documents. Some programmes also consider entrance scores
+              such as JEE Main for B.Tech or CAT/MAT for MBA, or the SGT entrance test.</p>
+          </details>
+          <details>
+            <summary>Does SGT University offer scholarships?</summary>
+            <p>Yes. Scholarships are offered under the university's scholarship policy for each academic year. Your
+              counsellor can tell you which ones you may qualify for.</p>
+          </details>
+          <details>
+            <summary>What are placements like at SGT University?</summary>
+            <p>Students get 100% placement support, with 275+ recruiters and a highest package of &#8377;42 LPA.
+              Recruiters include Amazon, Google, Deloitte, Infosys, TCS, EY, Fortis and Medanta.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================== FORM 2 =============================== -->
+    <section class="section dark" id="enquire" aria-labelledby="enquire-title">
+      <div class="container closing">
+        <div class="closing__copy">
+          <p class="kicker">Admissions <span class="nowrap">2027-28</span></p>
+          <h2 id="enquire-title">Start Your Admission at SGT University</h2>
+          <p>Talk to an admissions counsellor about courses, eligibility, fees and scholarships.</p>
+          <ul class="checklist">
+            <li>Free one-to-one admission counselling</li>
+            <li>Guidance on eligibility, entrance exams and scholarships</li>
+            <li>Help with your application, interview and documents</li>
+          </ul>
+          <figure class="closing__photo">
+            <img src="assets/students-group.webp" alt="SGT University students in formal blazers" width="654"
+              height="416" loading="lazy" decoding="async">
+          </figure>
+        </div>
+
+        <div class="form-card">
+          <h3 class="form-card__title">Enquire Now</h3>
+          <p class="form-card__sub">Get a call back from our admissions team.</p>
+          <div class="form-frame">
+            <iframe class="js-lsq-form" data-form-position="bottom" name="leadsquared_landing_page_frame_2"
+              src="https://sgtuni.viewpage.co/SGTU-LMS-organic?ignoremxtracking=mxtrue"
+              title="SGT University admission enquiry form (end of page)" frameborder="0" scrolling="auto"
+              loading="lazy"></iframe>
+            <script>sgtSetFormSrc(document.currentScript.previousElementSibling);</script>
+          </div>
+          <p class="form-card__note">
+            By submitting, you agree to be contacted by SGT University about admissions.
+            Read our <a href="privacy-policy.html">Privacy Policy</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/sgt-logo.svg" alt="SGT University" width="253" height="71" loading="lazy">
+        <address>Gurgaon-Badli Road, Chandu, Budhera,<br>Gurugram, Haryana 122505</address>
+      </div>
+      <div class="footer__legal">
+        <!-- These pages must exist on the live domain -->
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-use.html">Terms of Use</a>
+        <span>&copy; 2026 SGT University</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sticky-cta" id="sticky-cta" hidden>
+    <a href="#apply" class="btn btn--cta btn--block" data-cta="sticky">Enquire Now: Free Counselling</a>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* Campus tour: load YouTube only when the visitor clicks */
+      document.querySelectorAll('.js-video').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var iframe = document.createElement('iframe');
+          iframe.src = 'https://www.youtube-nocookie.com/embed/' +
+            encodeURIComponent(button.getAttribute('data-video-id')) + '?autoplay=1&rel=0';
+          iframe.title = button.getAttribute('data-video-title') || 'Video';
+          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+          iframe.allowFullscreen = true;
+          button.parentNode.replaceChild(iframe, button);
+        });
+      });
+
+      /* Sticky "Enquire Now" bar on phones: shown only when neither form section is on screen */
+      var sticky = document.getElementById('sticky-cta');
+      var watched = [document.getElementById('hero'), document.getElementById('enquire')].filter(Boolean);
+      if (sticky && watched.length && 'IntersectionObserver' in window) {
+        var onScreen = new Map();
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) { onScreen.set(entry.target, entry.isIntersecting); });
+          var formVisible = false;
+          onScreen.forEach(function (visible) { if (visible) formVisible = true; });
+          sticky.hidden = formVisible;
+          document.body.classList.toggle('has-sticky', !formVisible);
+        }, { threshold: 0.1 });
+        watched.forEach(function (el) { observer.observe(el); });
+      }
+
+      /* CTA clicks for Google Tag Manager: { event: 'cta_click', cta_location } */
+      window.dataLayer = window.dataLayer || [];
+      document.addEventListener('click', function (event) {
+        var el = event.target.closest ? event.target.closest('[data-cta]') : null;
+        if (el) window.dataLayer.push({ event: 'cta_click', cta_location: el.getAttribute('data-cta') });
+      });
+    })();
+  </script>
+</body>
+
+</html>
